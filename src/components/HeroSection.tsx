@@ -2,6 +2,13 @@
 import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
+  const handleScrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-16 pb-12 px-6">
       {/* Background gradient */}
@@ -21,7 +28,7 @@ export default function HeroSection() {
         <div className="animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-heading">
             Hello, I'm{" "}
-            <span className="text-gradient">Otti Faustina</span>
+            <span className="font-heading text-primary">Otti Faustina</span>
           </h1>
         </div>
         
@@ -33,25 +40,25 @@ export default function HeroSection() {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-          <a 
-            href="#contact" 
-            className="btn-gradient px-6 py-3 rounded-lg font-medium flex items-center justify-center"
+          <button 
+            onClick={() => handleScrollToSection('contact')}
+            className="button-primary px-6 py-3 rounded-lg font-medium flex items-center justify-center"
           >
             Get in Touch
-          </a>
-          <a 
-            href="#experience" 
-            className="px-6 py-3 rounded-lg font-medium border border-border hover:border-primary transition-colors flex items-center justify-center gap-2"
+          </button>
+          <button 
+            onClick={() => handleScrollToSection('experience')}
+            className="button-secondary px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2"
           >
             See My Experience
-          </a>
+          </button>
         </div>
       </div>
       
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#about" aria-label="Scroll down">
+        <button onClick={() => handleScrollToSection('about')} aria-label="Scroll down">
           <ArrowDown className="h-6 w-6 opacity-60" />
-        </a>
+        </button>
       </div>
     </section>
   );

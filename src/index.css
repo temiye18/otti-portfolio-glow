@@ -87,9 +87,20 @@
     @apply font-heading font-medium;
   }
 
-  /* Professional button style */
-  .btn-primary {
-    @apply bg-primary hover:bg-primary/90 text-white transition-all duration-300;
+  /* Button styles with tactile feel */
+  .button-primary {
+    @apply bg-primary text-white shadow-md transition-all duration-200 
+    hover:shadow-lg hover:translate-y-[-1px] active:translate-y-[1px] active:shadow
+    focus:outline-none focus:ring-2 focus:ring-primary/70 focus:ring-offset-2
+    dark:focus:ring-primary/50 dark:focus:ring-offset-background;
+  }
+
+  .button-secondary {
+    @apply bg-secondary text-foreground border border-border shadow-sm transition-all duration-200
+    hover:bg-secondary/80 hover:shadow hover:border-primary/30
+    active:translate-y-[1px] active:shadow-inner
+    focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2
+    dark:hover:bg-secondary/70 dark:focus:ring-primary/30 dark:focus:ring-offset-background;
   }
 
   /* Card style */

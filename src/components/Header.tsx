@@ -14,6 +14,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleScrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 ${
@@ -24,32 +31,32 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#" className="text-lg md:text-xl font-bold font-heading">
-          <span className="text-gradient">Otti Faustina</span>
+          <span className="text-primary">Otti Faustina</span>
         </a>
 
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#about" className="hover:text-primary transition-colors">
+          <button onClick={() => handleScrollToSection('about')} className="hover:text-primary transition-colors">
             About
-          </a>
-          <a href="#experience" className="hover:text-primary transition-colors">
+          </button>
+          <button onClick={() => handleScrollToSection('experience')} className="hover:text-primary transition-colors">
             Experience
-          </a>
-          <a href="#skills" className="hover:text-primary transition-colors">
+          </button>
+          <button onClick={() => handleScrollToSection('skills')} className="hover:text-primary transition-colors">
             Skills
-          </a>
-          <a href="#contact" className="hover:text-primary transition-colors">
+          </button>
+          <button onClick={() => handleScrollToSection('contact')} className="hover:text-primary transition-colors">
             Contact
-          </a>
+          </button>
         </nav>
 
         <div className="flex items-center space-x-4">
           <ThemeToggle />
-          <a
-            href="#contact"
-            className="hidden md:inline-flex btn-gradient px-4 py-2 rounded-md font-medium"
+          <button
+            onClick={() => handleScrollToSection('contact')}
+            className="hidden md:inline-flex button-primary px-4 py-2 rounded-md font-medium"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
       </div>
     </header>
