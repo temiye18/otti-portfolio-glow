@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Montserrat', 'sans-serif'],
-				heading: ['Playfair Display', 'serif'],
+				sans: ['Lato', 'sans-serif'],
+				heading: ['Merriweather', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
