@@ -17,7 +17,12 @@ export default function Header() {
   const handleScrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Adding a small delay to ensure DOM is ready
+      setTimeout(() => {
+        const yOffset = -80; // Offset to account for fixed header
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 100);
     }
   };
 
