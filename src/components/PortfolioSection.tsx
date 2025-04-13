@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { 
   Calendar, 
-  ClockCheck, 
+  CheckCheck, 
   Eye, 
   X,
   ChevronLeft,
@@ -88,7 +88,7 @@ export default function PortfolioSection() {
                       </div>
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-2xl bg-transparent border-none p-0 shadow-none">
+                  <DialogContent className="max-w-[90vw] max-h-[90vh] w-auto h-auto bg-transparent border-none p-0 shadow-none">
                     <div className="relative">
                       <DialogClose className="absolute top-2 right-2 bg-black/60 p-2 rounded-full z-10">
                         <X className="h-5 w-5 text-white" />
@@ -96,7 +96,7 @@ export default function PortfolioSection() {
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full rounded-lg"
+                        className="max-w-full max-h-[85vh] object-contain"
                       />
                     </div>
                   </DialogContent>
