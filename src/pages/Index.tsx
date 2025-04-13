@@ -5,6 +5,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import PortfolioSection from "@/components/PortfolioSection";
 import SkillsSection from "@/components/SkillsSection";
 import { useEffect } from "react";
 
@@ -29,6 +30,7 @@ const Index = () => {
         <AboutSection />
         <ExperienceSection />
         <SkillsSection />
+        <PortfolioSection />
         <ContactSection />
       </main>
       <Footer />
