@@ -6,7 +6,8 @@ import {
   Eye, 
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Plane
 } from "lucide-react";
 import { 
   Dialog, 
@@ -29,7 +30,19 @@ const portfolioItems = [
     description: "I efficiently organize and manage complex schedules, ensuring all appointments and meetings are properly set with appropriate reminders. My calendar management skills include coordinating across time zones, prioritizing tasks, and ensuring my clients never miss important events or deadlines.",
     skills: ["Appointment scheduling", "Time blocking", "Priority management", "Reminder systems", "Multi-calendar coordination"],
     image: "/lovable-uploads/17ec0bcf-7414-467b-9b13-7558182ca396.png",
-    icon: <Calendar className="h-6 w-6 text-primary" />
+    icon: <Calendar className="h-6 w-6 text-primary" />,
+    images: ["/lovable-uploads/17ec0bcf-7414-467b-9b13-7558182ca396.png"]
+  },
+  {
+    title: "Travel Itinerary Planning",
+    description: "I create comprehensive travel itineraries for business professionals, handling all details from flight bookings to hotel accommodations and local transportation. My meticulous planning ensures smooth business trips with organized schedules, clear directions, and contingency plans for any unexpected situations.",
+    skills: ["Flight booking coordination", "Accommodation arrangements", "Transportation planning", "Schedule optimization", "Travel documentation"],
+    image: "/lovable-uploads/ff675509-6854-4551-aca8-8af3459ae25f.png",
+    icon: <Plane className="h-6 w-6 text-primary" />,
+    images: [
+      "/lovable-uploads/ff675509-6854-4551-aca8-8af3459ae25f.png",
+      "/lovable-uploads/28c31b0e-f5b5-4c19-9ed1-0fa241a43e23.png"
+    ]
   }
   // More portfolio items can be added here in the future
 ];
@@ -93,11 +106,32 @@ export default function PortfolioSection() {
                       <DialogClose className="absolute top-2 right-2 bg-black/60 p-2 rounded-full z-10">
                         <X className="h-5 w-5 text-white" />
                       </DialogClose>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="max-w-full max-h-[85vh] object-contain"
-                      />
+                      
+                      {item.images && item.images.length > 1 ? (
+                        <Carousel className="w-full max-w-full">
+                          <CarouselContent>
+                            {item.images.map((img, imgIndex) => (
+                              <CarouselItem key={imgIndex}>
+                                <div className="flex items-center justify-center p-1">
+                                  <img
+                                    src={img}
+                                    alt={`${item.title} ${imgIndex + 1}`}
+                                    className="max-w-full max-h-[85vh] object-contain"
+                                  />
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious className="left-2 lg:-left-12" />
+                          <CarouselNext className="right-2 lg:-right-12" />
+                        </Carousel>
+                      ) : (
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="max-w-full max-h-[85vh] object-contain"
+                        />
+                      )}
                     </div>
                   </DialogContent>
                 </Dialog>
