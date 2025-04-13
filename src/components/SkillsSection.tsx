@@ -1,35 +1,40 @@
 
-import { CheckCircle, Star } from "lucide-react";
+import { Icon } from "lucide-react";
+import { 
+  MailCheck, FileSpreadsheet, Clock, ClipboardCheck, FolderKanban, 
+  Chrome, Monitor, Users, MessageSquare, CheckSquare, Brain, 
+  UserCheck, Database, Package, Search, TextSearch
+} from "lucide-react";
 
 export default function SkillsSection() {
   const skillCategories = [
     {
       title: "Administrative Skills",
       skills: [
-        { name: "Appointment Scheduling", rating: 5 },
-        { name: "Data Entry", rating: 5 },
-        { name: "Email Management", rating: 5 },
-        { name: "Time Management", rating: 5 },
-        { name: "Organizational Skills", rating: 5 }
+        { name: "Appointment Scheduling", icon: <Clock className="h-6 w-6 text-primary" /> },
+        { name: "Data Entry", icon: <FileSpreadsheet className="h-6 w-6 text-primary" /> },
+        { name: "Email Management", icon: <MailCheck className="h-6 w-6 text-primary" /> },
+        { name: "Time Management", icon: <Clock className="h-6 w-6 text-primary" /> },
+        { name: "Organizational Skills", icon: <FolderKanban className="h-6 w-6 text-primary" /> }
       ]
     },
     {
       title: "Technical Skills",
       skills: [
-        { name: "Google Workspace", rating: 5 },
-        { name: "Microsoft Office", rating: 5 },
-        { name: "CRM Tools", rating: 3 },
-        { name: "Web Research", rating: 5 }
+        { name: "Google Workspace", icon: <Chrome className="h-6 w-6 text-primary" /> },
+        { name: "Microsoft Office", icon: <Monitor className="h-6 w-6 text-primary" /> },
+        { name: "CRM Tools", icon: <Users className="h-6 w-6 text-primary" /> },
+        { name: "Web Research", icon: <Search className="h-6 w-6 text-primary" /> }
       ]
     },
     {
       title: "Soft Skills",
       skills: [
-        { name: "Communication", rating: 5 },
-        { name: "Customer Service", rating: 5 },
-        { name: "Attention to Detail", rating: 5 },
-        { name: "Critical Thinking", rating: 4 },
-        { name: "Collaboration", rating: 5 }
+        { name: "Communication", icon: <MessageSquare className="h-6 w-6 text-primary" /> },
+        { name: "Customer Service", icon: <UserCheck className="h-6 w-6 text-primary" /> },
+        { name: "Attention to Detail", icon: <TextSearch className="h-6 w-6 text-primary" /> },
+        { name: "Critical Thinking", icon: <Brain className="h-6 w-6 text-primary" /> },
+        { name: "Collaboration", icon: <Users className="h-6 w-6 text-primary" /> }
       ]
     }
   ];
@@ -52,23 +57,11 @@ export default function SkillsSection() {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <h3 className="text-xl font-medium mb-6 text-center">{category.title}</h3>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {category.skills.map((skill, i) => (
-                  <div key={i} className="flex items-center justify-between">
+                  <div key={i} className="flex items-center gap-3 p-2 hover:bg-secondary/40 rounded-md transition-colors">
+                    {skill.icon}
                     <span className="font-medium">{skill.name}</span>
-                    <div className="flex">
-                      {[...Array(5)].map((_, starIndex) => (
-                        <Star
-                          key={starIndex}
-                          size={18}
-                          className={`${
-                            starIndex < skill.rating 
-                              ? "text-primary fill-primary" 
-                              : "text-muted-foreground"
-                          }`}
-                        />
-                      ))}
-                    </div>
                   </div>
                 ))}
               </div>
@@ -91,7 +84,7 @@ export default function SkillsSection() {
                 "Attention to Detail"
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-primary" />
+                  <CheckSquare className="h-5 w-5 text-primary" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -102,16 +95,19 @@ export default function SkillsSection() {
             <h3 className="text-xl font-medium mb-6">Tools & Technologies</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4">
               {[
-                { name: "Google Workspace", level: "Advanced" },
-                { name: "Microsoft Office", level: "Advanced" },
-                { name: "CRM Tools", level: "Basic" },
-                { name: "Email Platforms", level: "Advanced" },
-                { name: "Scheduling Software", level: "Advanced" },
-                { name: "Research Tools", level: "Advanced" }
+                { name: "Google Workspace", icon: <Chrome className="h-5 w-5 text-primary mr-2" />, level: "Advanced" },
+                { name: "Microsoft Office", icon: <Monitor className="h-5 w-5 text-primary mr-2" />, level: "Advanced" },
+                { name: "CRM Tools", icon: <Users className="h-5 w-5 text-primary mr-2" />, level: "Basic" },
+                { name: "Email Platforms", icon: <MailCheck className="h-5 w-5 text-primary mr-2" />, level: "Advanced" },
+                { name: "Scheduling Software", icon: <Clock className="h-5 w-5 text-primary mr-2" />, level: "Advanced" },
+                { name: "Research Tools", icon: <Search className="h-5 w-5 text-primary mr-2" />, level: "Advanced" }
               ].map((tool, i) => (
-                <div key={i} className="flex flex-col">
-                  <span className="font-medium">{tool.name}</span>
-                  <span className="text-sm text-primary">{tool.level}</span>
+                <div key={i} className="flex items-center">
+                  {tool.icon}
+                  <div className="flex flex-col">
+                    <span className="font-medium">{tool.name}</span>
+                    <span className="text-sm text-primary">{tool.level}</span>
+                  </div>
                 </div>
               ))}
             </div>
