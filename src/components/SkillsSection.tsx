@@ -54,23 +54,20 @@ export default function SkillsSection() {
               <h3 className="text-xl font-medium mb-6 text-center">{category.title}</h3>
               <div className="space-y-4">
                 {category.skills.map((skill, i) => (
-                  <div key={i} className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">{skill.name}</span>
-                      <div className="flex">
-                        {[...Array(5)].map((_, starIndex) => (
-                          <Star
-                            key={starIndex}
-                            className={`h-4 w-4 ${starIndex < skill.rating ? "text-primary fill-primary" : "text-muted-foreground"}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="w-full bg-secondary rounded-full h-1.5">
-                      <div
-                        className="bg-gradient-to-r from-purple-600 to-blue-600 h-1.5 rounded-full"
-                        style={{ width: `${(skill.rating / 5) * 100}%` }}
-                      ></div>
+                  <div key={i} className="flex items-center justify-between">
+                    <span className="font-medium">{skill.name}</span>
+                    <div className="flex">
+                      {[...Array(5)].map((_, starIndex) => (
+                        <Star
+                          key={starIndex}
+                          size={18}
+                          className={`${
+                            starIndex < skill.rating 
+                              ? "text-primary fill-primary" 
+                              : "text-muted-foreground"
+                          }`}
+                        />
+                      ))}
                     </div>
                   </div>
                 ))}
