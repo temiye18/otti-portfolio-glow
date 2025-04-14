@@ -7,7 +7,8 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Plane
+  Plane,
+  FileText
 } from "lucide-react";
 import { 
   Dialog, 
@@ -42,6 +43,17 @@ const portfolioItems = [
     images: [
       "/lovable-uploads/ff675509-6854-4551-aca8-8af3459ae25f.png",
       "/lovable-uploads/28c31b0e-f5b5-4c19-9ed1-0fa241a43e23.png"
+    ]
+  },
+  {
+    title: "Meeting Agenda Creation",
+    description: "I develop structured meeting agendas that optimize team productivity and ensure all critical topics are addressed efficiently. My detailed agendas include clear time allocations, responsible parties, and expected outcomes to keep discussions focused and productive. I also monitor action items to ensure accountability and follow-through after meetings.",
+    skills: ["Time management", "Topic prioritization", "Role assignment", "Action item tracking", "Meeting documentation"],
+    image: "/lovable-uploads/f4dadfcd-5b44-47e0-a895-529b55216fad.png",
+    icon: <FileText className="h-6 w-6 text-primary" />,
+    images: [
+      "/lovable-uploads/f4dadfcd-5b44-47e0-a895-529b55216fad.png",
+      "/lovable-uploads/15964fd8-bdd1-4dc1-975c-22ac724808fb.png"
     ]
   }
   // More portfolio items can be added here in the future
