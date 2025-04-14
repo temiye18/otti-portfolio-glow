@@ -49,6 +49,9 @@ export default function Header() {
           <button onClick={() => handleScrollToSection('skills')} className="hover:text-primary transition-colors">
             Skills
           </button>
+          <button onClick={() => handleScrollToSection('portfolio')} className="hover:text-primary transition-colors">
+            My Work
+          </button>
           <button onClick={() => handleScrollToSection('contact')} className="hover:text-primary transition-colors">
             Contact
           </button>
