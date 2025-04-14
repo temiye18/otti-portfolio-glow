@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   Drawer,
   DrawerContent,
@@ -42,8 +43,8 @@ export default function Header() {
   const navLinks = [
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
     { id: 'portfolio', label: 'My Work' },
+    { id: 'skills', label: 'Skills' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -56,9 +57,19 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="#" className="text-lg md:text-xl font-bold font-heading">
-          <span className="text-primary">Otti Faustina</span>
-        </a>
+        <div className="flex items-center gap-3">
+          <Avatar className="w-10 h-10 border-2 border-primary/30">
+            <AvatarImage 
+              src="/public/lovable-uploads/6a59583c-a769-4d9f-8e2c-ea88264814a4.png" 
+              alt="Otti Faustina" 
+            />
+            <AvatarFallback>OF</AvatarFallback>
+          </Avatar>
+          
+          <a href="#" className="text-lg md:text-xl font-bold font-heading">
+            <span className="text-primary">Otti Faustina</span>
+          </a>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
