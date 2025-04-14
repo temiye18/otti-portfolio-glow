@@ -1,9 +1,21 @@
 
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Menu } from "lucide-react";
+import { Button } from "./ui/button";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./ui/drawer";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useIsMobile();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,9 +34,18 @@ export default function Header() {
         const yOffset = -80; // Offset to account for fixed header
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
+        setIsDrawerOpen(false); // Close the drawer when clicking a nav link
       }, 100);
     }
   };
+  
+  const navLinks = [
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'portfolio', label: 'My Work' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
   return (
     <header
@@ -39,32 +60,57 @@ export default function Header() {
           <span className="text-primary">Otti Faustina</span>
         </a>
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <button onClick={() => handleScrollToSection('about')} className="hover:text-primary transition-colors">
-            About
-          </button>
-          <button onClick={() => handleScrollToSection('experience')} className="hover:text-primary transition-colors">
-            Experience
-          </button>
-          <button onClick={() => handleScrollToSection('skills')} className="hover:text-primary transition-colors">
-            Skills
-          </button>
-          <button onClick={() => handleScrollToSection('portfolio')} className="hover:text-primary transition-colors">
-            My Work
-          </button>
-          <button onClick={() => handleScrollToSection('contact')} className="hover:text-primary transition-colors">
-            Contact
-          </button>
+          {navLinks.map((link) => (
+            <button 
+              key={link.id}
+              onClick={() => handleScrollToSection(link.id)} 
+              className="hover:text-primary transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
         </nav>
 
         <div className="flex items-center space-x-4">
           <ThemeToggle />
-          <button
-            onClick={() => handleScrollToSection('contact')}
-            className="hidden md:inline-flex button-primary px-4 py-2 rounded-md font-medium"
-          >
-            Get in Touch
-          </button>
+          
+          {/* Mobile Hamburger Menu */}
+          {isMobile ? (
+            <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+              <DrawerTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu />
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <DrawerHeader className="text-left">
+                  <DrawerTitle>Menu</DrawerTitle>
+                </DrawerHeader>
+                <div className="px-4 py-2">
+                  <nav className="flex flex-col space-y-4">
+                    {navLinks.map((link) => (
+                      <button
+                        key={link.id}
+                        onClick={() => handleScrollToSection(link.id)}
+                        className="w-full text-left py-2 px-2 hover:bg-accent rounded-md transition-colors hover:text-primary"
+                      >
+                        {link.label}
+                      </button>
+                    ))}
+                  </nav>
+                </div>
+              </DrawerContent>
+            </Drawer>
+          ) : (
+            <button
+              onClick={() => handleScrollToSection('contact')}
+              className="hidden md:inline-flex button-primary px-4 py-2 rounded-md font-medium"
+            >
+              Get in Touch
+            </button>
+          )}
         </div>
       </div>
     </header>
