@@ -71,7 +71,7 @@ export default function HeroSection() {
             {/* Main image with fancy border and shadow */}
             <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl">
               <img 
-                src="/public/lovable-uploads/6a59583c-a769-4d9f-8e2c-ea88264814a4.png" 
+                src="https://res.cloudinary.com/shareupload/image/upload/v1744711963/WhatsApp_Image_2025-04-14_at_00.17.21_bc3c5f44_oxtwhf.jpg" 
                 alt="Otti Faustina" 
                 className="w-full h-full object-cover object-center"
               />
@@ -87,7 +87,7 @@ export default function HeroSection() {
         <div className="flex md:hidden justify-center mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
           <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
             <AvatarImage 
-              src="/public/lovable-uploads/6a59583c-a769-4d9f-8e2c-ea88264814a4.png" 
+              src="https://res.cloudinary.com/shareupload/image/upload/v1744711963/WhatsApp_Image_2025-04-14_at_00.17.21_bc3c5f44_oxtwhf.jpg" 
               alt="Otti Faustina" 
             />
             <AvatarFallback>OF</AvatarFallback>
