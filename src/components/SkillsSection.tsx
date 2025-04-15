@@ -1,10 +1,44 @@
-import { Icon } from "lucide-react";
-import { useRevealAnimation } from "@/hooks/use-reveal-animation";
+
 import { 
   MailCheck, FileSpreadsheet, Clock, ClipboardCheck, FolderKanban, 
   Chrome, Monitor, Users, MessageSquare, CheckSquare, Brain, 
   UserCheck, Database, Package, Search, TextSearch
 } from "lucide-react";
+import { useRevealAnimation } from "@/hooks/use-reveal-animation";
+
+// Define skills categories
+const skillCategories = [
+  {
+    title: "Administrative",
+    skills: [
+      { name: "Email Management", icon: <MailCheck className="h-5 w-5 text-primary" /> },
+      { name: "Data Entry", icon: <FileSpreadsheet className="h-5 w-5 text-primary" /> },
+      { name: "Appointment Scheduling", icon: <Clock className="h-5 w-5 text-primary" /> },
+      { name: "Task Management", icon: <ClipboardCheck className="h-5 w-5 text-primary" /> },
+      { name: "Project Organization", icon: <FolderKanban className="h-5 w-5 text-primary" /> }
+    ]
+  },
+  {
+    title: "Communication",
+    skills: [
+      { name: "Customer Support", icon: <MessageSquare className="h-5 w-5 text-primary" /> },
+      { name: "Email Correspondence", icon: <MailCheck className="h-5 w-5 text-primary" /> },
+      { name: "Client Relationship", icon: <UserCheck className="h-5 w-5 text-primary" /> },
+      { name: "Documentation", icon: <FileSpreadsheet className="h-5 w-5 text-primary" /> },
+      { name: "Meeting Coordination", icon: <Users className="h-5 w-5 text-primary" /> }
+    ]
+  },
+  {
+    title: "Research & Analysis",
+    skills: [
+      { name: "Web Research", icon: <Search className="h-5 w-5 text-primary" /> },
+      { name: "Data Collection", icon: <Database className="h-5 w-5 text-primary" /> },
+      { name: "Content Research", icon: <TextSearch className="h-5 w-5 text-primary" /> },
+      { name: "Information Analysis", icon: <Brain className="h-5 w-5 text-primary" /> },
+      { name: "Resource Organization", icon: <Package className="h-5 w-5 text-primary" /> }
+    ]
+  }
+];
 
 export default function SkillsSection() {
   const { ref, isInView } = useRevealAnimation();

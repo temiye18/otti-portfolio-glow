@@ -1,5 +1,58 @@
+
 import { Briefcase, Calendar } from "lucide-react";
 import { useRevealAnimation } from "@/hooks/use-reveal-animation";
+
+// Define work experience data
+const workExperience = [
+  {
+    title: "Virtual Assistant",
+    company: "Freelance",
+    location: "Remote",
+    period: "2023 - Present",
+    responsibilities: [
+      "Managed email correspondence and calendar scheduling for clients",
+      "Conducted online research and data compilation",
+      "Handled basic bookkeeping and expense tracking",
+      "Provided customer service support and communication management"
+    ]
+  },
+  {
+    title: "Administrative Assistant",
+    company: "Lagos State University Teaching Hospital",
+    location: "Lagos, Nigeria",
+    period: "2021 - 2023",
+    responsibilities: [
+      "Maintained electronic and paper filing systems",
+      "Coordinated appointments and meetings for department heads",
+      "Processed forms and documentation for patient intake",
+      "Assisted with general office administration tasks"
+    ]
+  }
+];
+
+// Define volunteer experience data
+const volunteerExperience = [
+  {
+    title: "Community Health Volunteer",
+    company: "Lagos Health Initiative",
+    period: "2020 - 2022",
+    responsibilities: [
+      "Assisted with community health outreach programs",
+      "Documented patient information during free health screenings",
+      "Provided administrative support for health education workshops"
+    ]
+  },
+  {
+    title: "Administrative Support Volunteer",
+    company: "Youth Empowerment Foundation",
+    period: "2019 - 2020",
+    responsibilities: [
+      "Managed email communications and calendar scheduling",
+      "Assisted with event organization and registration",
+      "Provided data entry and document preparation support"
+    ]
+  }
+];
 
 export default function ExperienceSection() {
   const { ref, isInView } = useRevealAnimation();
