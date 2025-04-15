@@ -62,6 +62,7 @@ export default function Header() {
             <AvatarImage 
               src="https://res.cloudinary.com/shareupload/image/upload/v1744711963/WhatsApp_Image_2025-04-14_at_00.17.21_bc3c5f44_oxtwhf.jpg" 
               alt="Otti Faustina" 
+              className="object-cover"
             />
             <AvatarFallback>OF</AvatarFallback>
           </Avatar>
