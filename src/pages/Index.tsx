@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import ScrollToTop from "@/components/ScrollToTop";
 import SkillsSection from "@/components/SkillsSection";
 import { useEffect } from "react";
 
@@ -34,6 +35,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
