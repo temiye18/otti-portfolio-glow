@@ -1,5 +1,5 @@
-
 import { Icon } from "lucide-react";
+import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 import { 
   MailCheck, FileSpreadsheet, Clock, ClipboardCheck, FolderKanban, 
   Chrome, Monitor, Users, MessageSquare, CheckSquare, Brain, 
@@ -7,40 +7,16 @@ import {
 } from "lucide-react";
 
 export default function SkillsSection() {
-  const skillCategories = [
-    {
-      title: "Administrative Skills",
-      skills: [
-        { name: "Appointment Scheduling", icon: <Clock className="h-6 w-6 text-primary" /> },
-        { name: "Data Entry", icon: <FileSpreadsheet className="h-6 w-6 text-primary" /> },
-        { name: "Email Management", icon: <MailCheck className="h-6 w-6 text-primary" /> },
-        { name: "Time Management", icon: <Clock className="h-6 w-6 text-primary" /> },
-        { name: "Organizational Skills", icon: <FolderKanban className="h-6 w-6 text-primary" /> }
-      ]
-    },
-    {
-      title: "Technical Skills",
-      skills: [
-        { name: "Google Workspace", icon: <Chrome className="h-6 w-6 text-primary" /> },
-        { name: "Microsoft Office", icon: <Monitor className="h-6 w-6 text-primary" /> },
-        { name: "CRM Tools", icon: <Users className="h-6 w-6 text-primary" /> },
-        { name: "Web Research", icon: <Search className="h-6 w-6 text-primary" /> }
-      ]
-    },
-    {
-      title: "Soft Skills",
-      skills: [
-        { name: "Communication", icon: <MessageSquare className="h-6 w-6 text-primary" /> },
-        { name: "Customer Service", icon: <UserCheck className="h-6 w-6 text-primary" /> },
-        { name: "Attention to Detail", icon: <TextSearch className="h-6 w-6 text-primary" /> },
-        { name: "Critical Thinking", icon: <Brain className="h-6 w-6 text-primary" /> },
-        { name: "Collaboration", icon: <Users className="h-6 w-6 text-primary" /> }
-      ]
-    }
-  ];
-
+  const { ref, isInView } = useRevealAnimation();
+  
   return (
-    <section id="skills" className="py-20 px-6">
+    <section 
+      ref={ref} 
+      id="skills" 
+      className={`py-20 px-6 transition-all duration-1000 transform ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading inline-block">

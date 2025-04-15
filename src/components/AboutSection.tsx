@@ -1,9 +1,17 @@
-
 import { Award, CheckCircle, Globe } from "lucide-react";
+import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 
 export default function AboutSection() {
+  const { ref, isInView } = useRevealAnimation();
+  
   return (
-    <section id="about" className="py-20 px-6">
+    <section 
+      ref={ref} 
+      id="about" 
+      className={`py-20 px-6 transition-all duration-1000 transform ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading inline-block">

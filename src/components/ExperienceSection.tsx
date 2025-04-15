@@ -1,49 +1,17 @@
-
 import { Briefcase, Calendar } from "lucide-react";
+import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 
 export default function ExperienceSection() {
-  const workExperience = [
-    {
-      title: "Virtual Assistant",
-      company: "Invictus Development Centre",
-      location: "United Kingdom (Remote)",
-      period: "October 2024 - Present",
-      responsibilities: [
-        "Manage inbound and outbound communications with clients and stakeholders, which enhances customer service and retention rates.",
-        "Perform administrative tasks, including appointment scheduling, creating meeting agendas and making calls to clients which improves team coordination and project efficiency.",
-        "Conduct efficient data entry contributing to an increase in operational efficiency."
-      ]
-    },
-    {
-      title: "Virtual Assistant (Freelance)",
-      company: "Self-Employed",
-      location: "Remote",
-      period: "September 2024 - October 2024",
-      responsibilities: [
-        "Streamlined administrative processes for client, reducing their time spent on repetitive tasks and improving overall operational efficiency.",
-        "Delivered consistent, high-quality customer service by promptly addressing client inquiries and resolving issues, maintaining a high client satisfaction rate.",
-        "Conducted in-depth web research to deliver actionable insights, leading to improvement in clients' decision-making and business strategies.",
-        "Managed email inboxes, ensuring timely responses and a reduction in client response times enhancing customer satisfaction."
-      ]
-    }
-  ];
+  const { ref, isInView } = useRevealAnimation();
   
-  const volunteerExperience = [
-    {
-      title: "Director of Monitoring and Evaluation",
-      company: "Asido Campus Network Foundation",
-      period: "April 2023 - May 2024",
-      responsibilities: [
-        "Monitored and tracked team performance and progress of projects, ensuring adherence to objectives and timelines.",
-        "Conducted thorough assessments to identify potential and actual challenges, and then implementing initiatives to mitigate risks.",
-        "Participated in the World Mental Health Awareness Day Walk, contributing to raising awareness and promoting mental health advocacy.",
-        "Prepared comprehensive reports on event outcomes and key findings, ensuring transparency and accountability in project management."
-      ]
-    }
-  ];
-
   return (
-    <section id="experience" className="py-20 px-6 bg-secondary/50">
+    <section 
+      ref={ref} 
+      id="experience" 
+      className={`py-20 px-6 bg-secondary/50 transition-all duration-1000 transform ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading inline-block">
