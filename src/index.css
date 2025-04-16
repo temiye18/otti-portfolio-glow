@@ -7,15 +7,15 @@
 
 @layer base {
   :root {
-    /* Light mode colors based on the screenshot */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Modern light mode colors with Apple-inspired design */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
     
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222 47% 11%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 222 47% 11%;
     
     --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
@@ -26,8 +26,8 @@
     --muted: 210 40% 96%;
     --muted-foreground: 215 25% 27%;
     
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 221 83% 53%;
+    --accent-foreground: 210 40% 98%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
@@ -40,34 +40,34 @@
   }
 
   .dark {
-    /* Dark mode colors inspired by the Firebase Studio screenshot */
-    --background: 240 10% 3.9%;  /* Dark background like in the screenshot */
-    --foreground: 0 0% 98%;
+    /* Apple-inspired dark mode colors */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
     
-    --card: 240 10% 9%;
-    --card-foreground: 0 0% 98%;
+    --card: 223 47% 13%;
+    --card-foreground: 210 40% 98%;
     
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
     
-    --primary: 35 100% 50%;  /* Golden yellow from "Hello, Temiye" */
-    --primary-foreground: 0 0% 12%;
+    --primary: 210 100% 66%;
+    --primary-foreground: 222 47% 11%;
     
-    --secondary: 240 5% 14%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
     
-    --muted: 240 5% 17%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
     
-    --accent: 240 4% 20%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 100% 66%;
+    --accent-foreground: 222 47% 11%;
     
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
     
-    --border: 240 5% 26%;
-    --input: 240 5% 17%;
-    --ring: 35 100% 50%;
+    --border: 217 33% 20%;
+    --input: 217 33% 18%;
+    --ring: 210 100% 66%;
   }
 }
 
@@ -105,14 +105,15 @@
     dark:hover:bg-secondary/70 dark:focus:ring-primary/30 dark:focus:ring-offset-background;
   }
 
-  /* Card style */
+  /* Modern card style */
   .card-professional {
-    @apply bg-secondary/80 backdrop-blur-sm;
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 shadow-sm dark:border-border/20;
   }
 
-  /* Glass effect */
+  /* Glass effect inspired by Apple design */
   .glass {
-    @apply bg-secondary/30 backdrop-blur-lg border border-border shadow-sm dark:bg-background/30 dark:border-border/20;
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 
+    shadow-lg dark:bg-black/20 dark:border-white/10;
   }
 
   /* Dark mode is default */
@@ -120,20 +121,21 @@
     color-scheme: dark;
   }
   
-  /* Firebase-studio inspired input field in dark mode */
-  .dark .input-firebase {
-    @apply bg-secondary rounded-md border-0 px-4 py-3 text-foreground placeholder:text-muted-foreground/70;
+  /* Apple-inspired input field in dark mode */
+  .dark .input-modern {
+    @apply bg-secondary/80 rounded-md border-0 px-4 py-3 text-foreground shadow-inner
+    placeholder:text-muted-foreground/70;
   }
 }
 
 /* Hide scrollbar but allow scrolling */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
+  display: none;
 }
 
 /* Timeline styles */
@@ -204,15 +206,15 @@
   50% { opacity: 0.8; }
 }
 
-/* Dark mode enhancements inspired by Firebase Studio */
+/* Apple-inspired dark mode enhancements */
 .dark {
-  --shadow-color: rgba(255, 184, 0, 0.05); /* Subtle golden shadow in dark mode */
+  --shadow-color: rgba(0, 136, 255, 0.08);
 }
 
 .dark .glass {
-  background: rgba(22, 24, 28, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 184, 0, 0.1);
+  background: rgba(28, 30, 35, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 var(--shadow-color);
 }
 
@@ -227,17 +229,22 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 184, 0, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
   z-index: 1;
 }
 
-/* Update ScrollToTop button to match the new color scheme */
-.dark .scroll-top-button {
-  @apply bg-primary hover:bg-primary/90 text-primary-foreground;
+/* Modern ScrollToTop button */
+.scroll-top-button {
+  @apply bg-primary/90 hover:bg-primary text-primary-foreground shadow-lg 
+  dark:bg-primary/90 dark:hover:bg-primary dark:text-primary-foreground;
 }
 
-/* Apple-inspired gradient text in dark mode */
-.dark .gradient-text {
+/* Apple-inspired gradient text */
+.gradient-text {
   @apply text-transparent bg-clip-text;
-  background-image: linear-gradient(to right, #FFD700, #FFA500);
+  background-image: linear-gradient(90deg, #0070f3, #00c6ff);
+}
+
+.dark .gradient-text {
+  background-image: linear-gradient(90deg, #60a5fa, #00c6ff);
 }
