@@ -1,4 +1,3 @@
-
 import { Briefcase, Calendar } from "lucide-react";
 import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 
@@ -6,26 +5,25 @@ import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 const workExperience = [
   {
     title: "Virtual Assistant",
-    company: "Freelance",
-    location: "Remote",
-    period: "2023 - Present",
+    company: "Invictus Development Centre",
+    location: "United Kingdom",
+    period: "October 2024 - Present",
     responsibilities: [
-      "Managed email correspondence and calendar scheduling for clients",
-      "Conducted online research and data compilation",
-      "Handled basic bookkeeping and expense tracking",
-      "Provided customer service support and communication management"
+      "Manage inbound and outbound communications with clients and stakeholders, which enhances customer service and retention rates",
+      "Perform administrative tasks, including appointment scheduling, creating meeting agendas and making calls to clients which improves team coordination and project efficiency",
+      "Conduct efficient data entry contributing to an increase in operational efficiency"
     ]
   },
   {
-    title: "Administrative Assistant",
-    company: "Lagos State University Teaching Hospital",
-    location: "Lagos, Nigeria",
-    period: "2021 - 2023",
+    title: "Virtual Assistant (Freelance)",
+    company: "Self-Employed",
+    location: "Remote",
+    period: "September 2024 - October 2024",
     responsibilities: [
-      "Maintained electronic and paper filing systems",
-      "Coordinated appointments and meetings for department heads",
-      "Processed forms and documentation for patient intake",
-      "Assisted with general office administration tasks"
+      "Streamlined administrative processes for client, reducing their time spent on repetitive tasks and improving overall operational efficiency",
+      "Delivered consistent, high-quality customer service by promptly addressing client inquiries and resolving issues, maintaining a high client satisfaction rate",
+      "Conducted in-depth web research to deliver actionable insights, leading to improvement in clients' decision-making and business strategies",
+      "Managed email inboxes, ensuring timely responses and a reduction in client response times enhancing customer satisfaction"
     ]
   }
 ];
@@ -33,23 +31,14 @@ const workExperience = [
 // Define volunteer experience data
 const volunteerExperience = [
   {
-    title: "Community Health Volunteer",
-    company: "Lagos Health Initiative",
-    period: "2020 - 2022",
+    title: "Director of Monitoring and Evaluation",
+    company: "Asido Campus Network Foundation",
+    period: "April 2023 - May 2024",
     responsibilities: [
-      "Assisted with community health outreach programs",
-      "Documented patient information during free health screenings",
-      "Provided administrative support for health education workshops"
-    ]
-  },
-  {
-    title: "Administrative Support Volunteer",
-    company: "Youth Empowerment Foundation",
-    period: "2019 - 2020",
-    responsibilities: [
-      "Managed email communications and calendar scheduling",
-      "Assisted with event organization and registration",
-      "Provided data entry and document preparation support"
+      "Monitored and tracked team performance and progress of projects, ensuring adherence to objectives and timelines",
+      "Conducted thorough assessments to identify potential and actual challenges, and then implementing initiatives to mitigate risks",
+      "Participated in the World Mental Health Awareness Day Walk, contributing to raising awareness and promoting mental health advocacy",
+      "Prepared comprehensive reports on event outcomes and key findings, ensuring transparency and accountability in project management"
     ]
   }
 ];

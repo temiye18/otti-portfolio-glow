@@ -30,7 +30,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-md bg-secondary shadow-md hover:shadow-lg hover:translate-y-[-1px] active:translate-y-[1px] active:shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
+      className="p-2 rounded-md bg-secondary/80 shadow-md hover:shadow-lg hover:translate-y-[-1px] active:translate-y-[1px] active:shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2 dark:bg-blue-500/10 dark:border dark:border-blue-400/20"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
