@@ -1,28 +1,8 @@
 
 import { ArrowDown } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { useEffect, useState } from "react";
 
 export default function HeroSection() {
-  const [displayText, setDisplayText] = useState("");
-  const fullText = "Hello, I'm Otti Faustina";
-
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayText((prev) => prev + fullText.charAt(index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100); // Typing speed
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
   const handleScrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -55,7 +35,7 @@ export default function HeroSection() {
           
           <div className="animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-heading">
-              <span className="typing-cursor">{displayText}</span>
+              Hello, I'm Otti Faustina
             </h1>
           </div>
           
