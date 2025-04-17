@@ -1,37 +1,56 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export const useRevealAnimation = (threshold = 0.1) => {
+export const useRevealAnimation = (threshold = 0.1, rootMargin = '50px') => {
   const ref = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
+    const currentRef = ref.current;
+    
+    // Enhanced intersection observer with better options
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        // Only trigger animation if it hasn't been triggered yet
+        if (entry.isIntersecting && !hasAnimated) {
           setIsInView(true);
-          // Once revealed, stop observing
-          if (ref.current) {
-            observer.unobserve(ref.current);
-          }
+          setHasAnimated(true);
+          
+          // Add a slight delay before unobserving to ensure animation completes
+          setTimeout(() => {
+            if (currentRef) {
+              observer.unobserve(currentRef);
+            }
+          }, 1000);
+        } else if (!entry.isIntersecting && !hasAnimated) {
+          setIsInView(false);
         }
       },
       {
         threshold,
-        rootMargin: '50px',
+        rootMargin,
+        // Add root: null to observe relative to viewport
+        root: null,
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
-  }, [threshold]);
+  }, [threshold, rootMargin, hasAnimated]);
 
-  return { ref, isInView };
+  // Reset animation if needed (useful for route changes)
+  const resetAnimation = () => {
+    setIsInView(false);
+    setHasAnimated(false);
+  };
+
+  return { ref, isInView, resetAnimation };
 };

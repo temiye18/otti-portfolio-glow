@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 import { 
@@ -69,9 +70,13 @@ export default function PortfolioSection() {
       id="portfolio" 
       className={`py-20 px-6 transition-all duration-1000 transform ${
         isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-      }`}
+      } relative overflow-hidden`}
     >
-      <div className="max-w-6xl mx-auto">
+      {/* Enhanced background elements */}
+      <div className="absolute top-20 left-0 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl animate-float -z-10"></div>
+      <div className="absolute bottom-40 right-10 w-64 h-64 bg-blue-400/5 rounded-full filter blur-2xl animate-pulse-subtle -z-10"></div>
+      
+      <div className="max-w-6xl mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading inline-block">
             My <span className="text-gradient">Work</span>
@@ -80,25 +85,39 @@ export default function PortfolioSection() {
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Examples of my work and expertise in various fields
           </p>
+          
+          {/* Animated accent decorations */}
+          <div className="absolute top-0 left-1/4 w-6 h-6 rounded-full bg-primary/20 animate-float hidden md:block"></div>
+          <div className="absolute top-10 right-1/4 w-4 h-4 rounded-full bg-blue-500/20 animate-float" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {portfolioItems.map((item, index) => (
             <div 
               key={index} 
-              className="glass rounded-xl overflow-hidden animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className={`glass rounded-xl overflow-hidden transform transition-all duration-700 ${
+                isInView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
+              } hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  {item.icon}
+                  <div className="p-2 rounded-full bg-primary/10 transform transition-transform duration-300 group-hover:scale-110">
+                    {item.icon}
+                  </div>
                   <h3 className="text-xl font-medium">{item.title}</h3>
                 </div>
                 <p className="text-muted-foreground mb-4">{item.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.skills.map((skill, i) => (
-                    <span key={i} className="text-sm bg-secondary/50 px-3 py-1 rounded-full">
+                    <span 
+                      key={i} 
+                      className={`text-sm bg-secondary/50 px-3 py-1 rounded-full transform transition-all duration-500 ${
+                        isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                      } hover:bg-primary/10 hover:text-foreground transition-colors duration-300`}
+                      style={{ transitionDelay: `${(index * 100) + (i * 100) + 400}ms` }}
+                    >
                       {skill}
                     </span>
                   ))}
@@ -113,16 +132,18 @@ export default function PortfolioSection() {
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                        <Eye className="h-8 w-8 text-white" />
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                        <div className="transform transition-all duration-300 scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100">
+                          <Eye className="h-8 w-8 text-white" />
+                        </div>
                       </div>
                     </button>
                   </DialogTrigger>
                   <DialogContent className="max-w-[90vw] max-h-[90vh] w-auto h-auto bg-transparent border-none p-0 shadow-none">
                     <div className="relative">
-                      <DialogClose className="absolute top-2 right-2 bg-black/60 p-2 rounded-full z-10">
+                      <DialogClose className="absolute top-2 right-2 bg-black/60 p-2 rounded-full z-10 hover:bg-black/80 transition-colors duration-300">
                         <X className="h-5 w-5 text-white" />
                       </DialogClose>
                       
@@ -135,20 +156,20 @@ export default function PortfolioSection() {
                                   <img
                                     src={img}
                                     alt={`${item.title} ${imgIndex + 1}`}
-                                    className="max-w-full max-h-[85vh] object-contain"
+                                    className="max-w-full max-h-[85vh] object-contain animate-fade-in"
                                   />
                                 </div>
                               </CarouselItem>
                             ))}
                           </CarouselContent>
-                          <CarouselPrevious className="left-2 lg:-left-12" />
-                          <CarouselNext className="right-2 lg:-right-12" />
+                          <CarouselPrevious className="left-2 lg:-left-12 bg-black/60 hover:bg-black/80 text-white transition-colors duration-300" />
+                          <CarouselNext className="right-2 lg:-right-12 bg-black/60 hover:bg-black/80 text-white transition-colors duration-300" />
                         </Carousel>
                       ) : (
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="max-w-full max-h-[85vh] object-contain"
+                          className="max-w-full max-h-[85vh] object-contain animate-fade-in"
                         />
                       )}
                     </div>

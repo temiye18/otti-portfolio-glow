@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -122,6 +123,30 @@ export default {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
 				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'bounce-gentle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-500px 0' },
+					'100%': { backgroundPosition: '500px 0' }
+				},
+				'text-blur-out': {
+					'0%': { filter: 'blur(0.01px)' },
+					'100%': { filter: 'blur(3px) opacity(0)' }
+				},
+				'text-blur-in': {
+					'0%': { filter: 'blur(3px) opacity(0)' },
+					'100%': { filter: 'blur(0.01px)' }
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -131,7 +156,13 @@ export default {
 				'fade-in-up': 'fade-in-up 0.8s ease-out',
 				'fade-in-up-fast': 'fade-in-up 0.4s ease-out',
 				'fade-in-right': 'fade-in-right 0.8s ease-out',
-				'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+				'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'spin-slow': 'spin-slow 12s linear infinite',
+				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+				'shimmer': 'shimmer 2.5s infinite linear',
+				'text-blur-out': 'text-blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both',
+				'text-blur-in': 'text-blur-in 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both'
 			}
 		}
 	},
