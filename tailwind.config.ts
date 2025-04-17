@@ -29,7 +29,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(221 83% 53%)',
+					DEFAULT: 'hsl(221 83% 58%)',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -67,9 +67,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				blue: {
-					500: 'hsl(221 83% 53%)',
-					600: 'hsl(221 83% 48%)',
-					400: 'hsl(221 83% 58%)'
+					500: 'hsl(221 83% 58%)',
+					600: 'hsl(221 83% 53%)',
+					400: 'hsl(221 83% 63%)'
 				}
 			},
 			borderRadius: {
