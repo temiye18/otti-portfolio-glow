@@ -145,7 +145,7 @@ export default function AboutSection() {
               <h3 className="text-lg font-medium mb-4">Location & Contact</h3>
               <div className="space-y-2">
                 <p>Lagos, Nigeria</p>
-                <p>12, Awobona Road, Iju-Ishaga</p>
+                <p>Iju-Ishaga</p>
                 <p className="text-primary relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300 cursor-pointer">faustinaotti@gmail.com</p>
                 <p>+234 814 505 9520, +234 902 657 8638</p>
               </div>
