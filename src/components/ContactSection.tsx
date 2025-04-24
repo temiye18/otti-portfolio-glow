@@ -60,7 +60,7 @@ export default function ContactSection() {
                   <div>
                     <h4 className="text-lg font-medium">Location</h4>
                     <p className="text-muted-foreground">Lagos, Nigeria</p>
-                    <p className="text-muted-foreground">12, Awobona Road, Iju-Ishaga</p>
+                    <p className="text-muted-foreground">Iju-Ishaga</p>
                   </div>
                 </div>
                 
